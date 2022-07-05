@@ -1,14 +1,4 @@
-var plans = {
-    hour0: ["hello"],
-    hour1: ["hi"],
-    hour2: ["hey"],
-    hour3: [],
-    hour4: [],
-    hour5: [],
-    hour6: [],
-    hour7: [],
-    hour8: []
-};
+var plans = {};
 
 var createPlans = function() {
     
@@ -19,15 +9,15 @@ var loadPlans = function() {
 
     if(!plans) {
         plans = {
-            hour9: [],
-            hour10: [],
-            hour11: [],
-            hour12: [],
+            hour0: [],
             hour1: [],
             hour2: [],
             hour3: [],
             hour4: [],
-            hour5: []
+            hour5: [],
+            hour6: [],
+            hour7: [],
+            hour8: []
         };
     }
 
@@ -37,7 +27,9 @@ var loadPlans = function() {
 };
 
 var savePlans = function() {
-    localStorage.setItem("plans", JSON.stringify(plans));
+    for (var i = 0; i < plans.length; i++) {
+    localStorage.setItem("plans", JSON.stringify(plans.hour[i]));
+    }
 }
 
 // Set the current day at the top of the page
@@ -58,7 +50,7 @@ $(".planner").on("click", function(){
 });
 
 // turn the text area back to a div
-$(".planner").off("focus", function(){
+$(".planner").on("blur", function(){
     var text = $(this)
     .val()
     .trim();
