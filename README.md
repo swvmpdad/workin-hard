@@ -13,3 +13,6 @@ utilizing localStorage to save tasks with the click of a save button
 - Bootstrap
 - JQuery
 - Moment.js
+
+## Link to the site
+<link src="https://swvmpdad.github.io/workin-hard/">https://swvmpdad.github.io/workin-hard/</link>
