@@ -69,5 +69,24 @@ $(".saveBtn").click(function(){
     savePlans(buttonId);
 });
 
+// change the colors of the time slots based on relevance to the current hour
+var hourColors = function() {
+    var currentHour = moment().format("H");
+    for (var i = 0; i < 9; i++) {
+    var hourSlot = $("#hour-"+i);
+    var hour = hourSlot
+        .attr("data-time");
+
+        if (currentHour === hour) {
+            hourSlot.addClass("bg-info");
+        } else if (currentHour <= hour) {
+            hourSlot.addClass("bg-success");
+        } else if (currentHour >= hour) {
+            hourSlot.addClass("bg-danger");
+        }
+    }
+};
+
 currentDay();
 loadPlans();
+hourColors();
